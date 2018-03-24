@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Jose Parreno Garcia" />
+
+
+<title>Installing ubuntu on windows machine</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Installing Ubuntu</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Installing Ubuntu</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Installing ubuntu on windows machine</h1>
+<h4 class="author"><em>Jose Parreno Garcia</em></h4>
+<h4 class="date"><em>March 2018</em></h4>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#virtual-box"><span class="toc-section-number">1</span> Virtual Box</a><ul>
+<li><a href="#download"><span class="toc-section-number">1.1</span> Download</a></li>
+<li><a href="#install"><span class="toc-section-number">1.2</span> Install</a></li>
+</ul></li>
+<li><a href="#download-ubuntu"><span class="toc-section-number">2</span> Download Ubuntu</a><ul>
+<li><a href="#download-1"><span class="toc-section-number">2.1</span> Download</a></li>
+</ul></li>
+<li><a href="#setting-up-the-vm-and-installing-ubuntu"><span class="toc-section-number">3</span> Setting up the VM and installing Ubuntu</a><ul>
+<li><a href="#setting-up-the-vm"><span class="toc-section-number">3.1</span> Setting up the VM</a></li>
+<li><a href="#installing-ubuntu-in-the-vm"><span class="toc-section-number">3.2</span> Installing Ubuntu in the VM</a></li>
+</ul></li>
+</ul>
+</div>
+
+<style>
+body {
+text-align: justify}
+</style>
+<pre class="r"><code>library(knitr)</code></pre>
+<p>If you have a windows machine and you dont want to replace the windows OS for a Linux OS, you can set up a virtual machine in your computer and install Ubuntu on it, leaving you with the default windows OS and the option of opening side by side an ubuntu instance.</p>
+<p>Obviously, the best option is to have your own linux machine or a server where you can directly install ubuntu on it, but that costs extra money, so let’s stick to improving our windows machine a little bit.</p>
+<p><br></p>
+<div id="virtual-box" class="section level1">
+<h1><span class="header-section-number">1</span> Virtual Box</h1>
+<p>The first thing we need to do is install a virtual machine software on our laptop. There are multiple VM softwares in the internet, but I would recommend Virtual Box developed by Oracle. Its free and easy to set up.</p>
+<div id="download" class="section level2">
+<h2><span class="header-section-number">1.1</span> Download</h2>
+<pre class="code"><code>http://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html</code></pre>
+<p><img src="images/1.PNG" /><!-- --></p>
+</div>
+<div id="install" class="section level2">
+<h2><span class="header-section-number">1.2</span> Install</h2>
+<p><img src="images/2.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/3.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/4.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/5.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/6.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/7.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/8.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/9.PNG" /><!-- --></p>
+<p><br></p>
+</div>
+</div>
+<div id="download-ubuntu" class="section level1">
+<h1><span class="header-section-number">2</span> Download Ubuntu</h1>
+<p>Before setting up the VM with Ubuntu, we have to download first the Ubuntu OS.</p>
+<div id="download-1" class="section level2">
+<h2><span class="header-section-number">2.1</span> Download</h2>
+<pre class="code"><code>https://www.ubuntu.com/download/desktop</code></pre>
+<p>You will find multiple version of Ubuntu but I recommend downloading the latest LTS version (long term support version), as it is more stable and supported by the developers.</p>
+<p><img src="images/10.PNG" /><!-- --></p>
+<p><br></p>
+</div>
+</div>
+<div id="setting-up-the-vm-and-installing-ubuntu" class="section level1">
+<h1><span class="header-section-number">3</span> Setting up the VM and installing Ubuntu</h1>
+<div id="setting-up-the-vm" class="section level2">
+<h2><span class="header-section-number">3.1</span> Setting up the VM</h2>
+<p>When you first open Virtual Box you well shown a screen like the one below. You can observe that no virtual machine has been set up in virtual box.</p>
+<p><img src="images/11.PNG" /><!-- --></p>
+<p>Therefore, the first we need to do is:</p>
+<ul>
+<li>Click on new</li>
+<li>Name the machine instance (Ubuntu)</li>
+<li>Select the version you are going to use (the 32 or 64 bit version you downloaded)</li>
+<li>Allocate the RAM you want to give the new machine. I am going to allocate 3GB.</li>
+<li>Allocate the hard disk memory size. In this case I am going to allocate 150GB of memory.</li>
+</ul>
+<p><img src="images/12.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/13.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/14.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/15.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/16.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/17.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/18.PNG" /><!-- --></p>
+<p><br></p>
+<p>AND FINALLY YOUR VIRTUAL MACHINE IS SET UP!</p>
+<p><img src="images/19.PNG" /><!-- --></p>
+<p><br></p>
+</div>
+<div id="installing-ubuntu-in-the-vm" class="section level2">
+<h2><span class="header-section-number">3.2</span> Installing Ubuntu in the VM</h2>
+<ul>
+<li>Turn the VM on (select the VM and click start)</li>
+<li>You will prompted with a window asking you to select the start up disk. You need to browse and select your OS file that you downloaded.</li>
+<li>After pressing start it will start initializing the Ubuntu setup process</li>
+<li>You will be shown at some point a nice screen and a box asking you to try ubuntu or install it. This is a nice feature because you can always give it a go and not install it if you dont like. Anyway, we click on Install Ubuntu and select extra options.</li>
+<li>Finally, begin installing the OS but I can tell you that it might take some time to install.</li>
+</ul>
+<p><img src="images/20.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/21.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/22.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/23.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/24.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/25.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/26.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/27.PNG" /><!-- --></p>
+<p><br></p>
+<p><img src="images/28.PNG" /><!-- --></p>
+<p><br></p>
+<p>After installation is complete, restart by clicking the restart button. This will only restart your VM. You will probably get a pop up saying “Please remove the installation medium, then Press Enter”. Basically, because we used an .ISO file to be mounted for the installation process, we need to unmount it and then press enter. To do this, simply click on devices, optical drives and check if you need to unmount / remove the disk from the drive. Probably you won´t need to, so you can go ahead and click enter. If not, then remove it and click enter.</p>
+<p>And finally, you will be able to log in to your VM and see the Ubuntu desktop!!</p>
+<p><br></p>
+<p><img src="images/29.PNG" /><!-- --></p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
